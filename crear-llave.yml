@@ -1,0 +1,52 @@
+name: Crear llave de firma (solo una vez)
+
+# Genera tu llave de subida a Google Play SIN necesitar instalar nada en tu computadora.
+# Ejecútalo UNA sola vez desde Actions. Luego descarga el resultado, guarda una copia en lugar seguro
+# y bórralo de GitHub. REPOSITORIO PRIVADO recomendado.
+on:
+  workflow_dispatch:
+
+jobs:
+  crear:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comprobar que el repositorio es privado
+        if: ${{ github.event.repository.private == false }}
+        run: |
+          echo "::error::Este repositorio es PÚBLICO. Los archivos generados por Actions se pueden descargar desde un repositorio público, así que NO se genera la llave. Hazlo privado (Settings → General → Danger Zone → Change visibility) o usa tools/crear-llave.sh en tu computadora."
+          exit 1
+
+      - name: Generar llave y contraseñas
+        run: |
+          set -e
+          PASS="$(openssl rand -base64 24 | tr -dc 'A-Za-z0-9' | head -c 24)"
+          echo "::add-mask::$PASS"
+          mkdir -p salida
+          keytool -genkeypair -v \
+            -keystore salida/calmaceleste-upload.jks \
+            -alias calmaceleste \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass "$PASS" -keypass "$PASS" \
+            -dname "CN=Calma Celeste, OU=App, O=Calma Celeste, C=VE" > /dev/null 2>&1
+          B64="$(base64 -w 0 salida/calmaceleste-upload.jks)"
+          cat > salida/LEEME-SECRETOS.txt <<EOF
+          Crea estos 4 secretos en GitHub:
+          Settings → Secrets and variables → Actions → New repository secret
+
+          KEYSTORE_BASE64    = (el contenido de keystore-base64.txt, todo en una línea)
+          KEYSTORE_PASSWORD  = $PASS
+          KEY_ALIAS          = calmaceleste
+          KEY_PASSWORD       = $PASS
+
+          GUARDA una copia del archivo calmaceleste-upload.jks y de esta contraseña en un lugar seguro
+          (por ejemplo un gestor de contraseñas). Si se pierden, Google puede ayudarte a restablecer la
+          llave de subida, pero es un trámite.
+          EOF
+          printf '%s' "$B64" > salida/keystore-base64.txt
+
+      - name: Guardar resultado (se borra solo en 1 día)
+        uses: actions/upload-artifact@v4
+        with:
+          name: llave-de-firma-PRIVADA
+          path: salida/*
+          retention-days: 1
