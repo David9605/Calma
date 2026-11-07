@@ -1,6 +1,7 @@
 name: Compilar y probar
 
 # Se ejecuta solo cada vez que subes cambios. Te avisa si algo se rompió y te deja un APK de prueba.
+# Si falla: abre la ejecución y mira la pestaña "Summary" (arriba a la izquierda). Ahí sale la lista corta de errores.
 on:
   push:
     branches: [main, master]
@@ -18,21 +19,90 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Comprobar que el proyecto está completo
+        shell: bash
+        run: |
+          missing=0
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            if [ ! -f "$f" ]; then
+              echo "::error::Falta el archivo: $f"
+              missing=1
+            fi
+          done <<'LISTA'
+          app/build.gradle.kts
+          app/proguard-rules.pro
+          app/src/main/AndroidManifest.xml
+          app/src/main/assets/chistes.txt
+          app/src/main/java/com/calmaceleste/app/CalmaApp.kt
+          app/src/main/java/com/calmaceleste/app/MainActivity.kt
+          app/src/main/java/com/calmaceleste/app/data/Catalog.kt
+          app/src/main/java/com/calmaceleste/app/data/HelpData.kt
+          app/src/main/java/com/calmaceleste/app/data/Insights.kt
+          app/src/main/java/com/calmaceleste/app/data/Models.kt
+          app/src/main/java/com/calmaceleste/app/data/Repo.kt
+          app/src/main/java/com/calmaceleste/app/system/Audio.kt
+          app/src/main/java/com/calmaceleste/app/system/Intents.kt
+          app/src/main/java/com/calmaceleste/app/system/Scheduler.kt
+          app/src/main/java/com/calmaceleste/app/ui/Breathing.kt
+          app/src/main/java/com/calmaceleste/app/ui/Components.kt
+          app/src/main/java/com/calmaceleste/app/ui/Contacts.kt
+          app/src/main/java/com/calmaceleste/app/ui/Diary.kt
+          app/src/main/java/com/calmaceleste/app/ui/Fun.kt
+          app/src/main/java/com/calmaceleste/app/ui/Games.kt
+          app/src/main/java/com/calmaceleste/app/ui/GoodBox.kt
+          app/src/main/java/com/calmaceleste/app/ui/Home.kt
+          app/src/main/java/com/calmaceleste/app/ui/Media.kt
+          app/src/main/java/com/calmaceleste/app/ui/Nav.kt
+          app/src/main/java/com/calmaceleste/app/ui/Reminders.kt
+          app/src/main/java/com/calmaceleste/app/ui/Safety.kt
+          app/src/main/java/com/calmaceleste/app/ui/Session.kt
+          app/src/main/java/com/calmaceleste/app/ui/Settings.kt
+          app/src/main/java/com/calmaceleste/app/ui/Sounds.kt
+          app/src/main/java/com/calmaceleste/app/ui/Thoughts.kt
+          app/src/main/java/com/calmaceleste/app/ui/theme/Theme.kt
+          app/src/main/res/drawable/ic_launcher_foreground.xml
+          app/src/main/res/drawable/ic_stat_calm.xml
+          app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+          app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+          app/src/main/res/values-night/themes.xml
+          app/src/main/res/values/colors.xml
+          app/src/main/res/values/strings.xml
+          app/src/main/res/values/themes.xml
+          app/src/test/java/com/calmaceleste/app/CatalogTest.kt
+          app/src/test/java/com/calmaceleste/app/InsightsTest.kt
+          build.gradle.kts
+          gradle.properties
+          gradle/libs.versions.toml
+          settings.gradle.kts
+          version.properties
+          LISTA
+          if [ "$missing" != 0 ]; then
+            echo "::error::Faltan archivos del proyecto (ver arriba). Súbelos respetando las carpetas exactas."
+            exit 1
+          fi
+          echo "Proyecto completo: 46 archivos encontrados."
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
+      # Instala Gradle directamente: no depende de gradlew ni de gradle-wrapper.jar del repositorio.
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.14.3"
 
       - name: Aceptar licencias del SDK de Android
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
 
       - name: Pruebas automáticas
-        run: ./gradlew testDebugUnitTest --stacktrace
+        shell: bash
+        run: gradle testDebugUnitTest --console=plain --warning-mode=none 2>&1 | tee build.log
 
       - name: Compilar APK de prueba
-        run: ./gradlew assembleDebug --stacktrace
+        shell: bash
+        run: gradle assembleDebug --console=plain --warning-mode=none 2>&1 | tee -a build.log
 
       - name: Guardar APK de prueba
         uses: actions/upload-artifact@v4
@@ -41,10 +111,29 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 14
 
-      - name: Guardar informe de pruebas si fallan
+      - name: Resumen de errores
+        if: failure()
+        shell: bash
+        run: |
+          grep -E '^e: ' build.log | sed -E 's#file:///home/runner/work/[^/]+/[^/]+/##' | sort -u | head -60 > errores.txt || true
+          if [ ! -s errores.txt ]; then
+            sed -n '/What went wrong/,/\* Try/p' build.log | head -40 > errores.txt || true
+          fi
+          {
+            echo "## Errores de compilación"
+            echo '```'
+            cat errores.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          head -10 errores.txt | while IFS= read -r l; do echo "::error::$l"; done
+
+      - name: Guardar el registro si algo falla
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: informe-de-pruebas
-          path: app/build/reports/tests/
+          name: registro-de-errores
+          path: |
+            build.log
+            app/build/reports/tests/
           retention-days: 7
+          if-no-files-found: ignore
