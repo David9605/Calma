@@ -38,7 +38,7 @@ jobs:
         run: gradle assembleDebug --stacktrace
 
       - name: Guardar APK de prueba
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: CalmaCeleste-debug-apk
           path: app/build/outputs/apk/debug/*.apk
@@ -46,7 +46,7 @@ jobs:
 
       - name: Guardar informe de pruebas si fallan
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: informe-de-pruebas
           path: app/build/reports/tests/
