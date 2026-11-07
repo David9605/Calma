@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Flor de loto: calma -->
+    <path
+        android:fillColor="#E8F6FF"
+        android:pathData="M54,68 C38,64 30,50 32,38 C44,42 52,54 54,68 Z" />
+    <path
+        android:fillColor="#E8F6FF"
+        android:pathData="M54,68 C70,64 78,50 76,38 C64,42 56,54 54,68 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,28 C64,40 64,56 54,68 C44,56 44,40 54,28 Z" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M34,77 Q44,71 54,77 T74,77" />
+</vector>

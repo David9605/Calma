@@ -1,0 +1,310 @@
+# Banco de chistes de Calma Celeste.
+# Formato: categoria|texto##remate   (el remate es opcional)
+# Para añadir más chistes en futuras versiones, solo agrega líneas nuevas al final.
+# Reglas: sin burlas hacia personas o grupos, aptos para todo público.
+Cortos|¿Qué le dice un cero a otro cero?##Que juntos hacen diez.
+Cortos|¿Por qué el libro de matemáticas estaba triste?##Porque tenía demasiados problemas.
+Cortos|¿Cuál es el colmo de un jardinero?##Que su novia se llame Rosa y lo deje plantado.
+Cortos|¿Cuál es el colmo de un panadero?##Que su hijo se llame Pan y salga hecho un pan de Dios.
+Cortos|¿Qué hace una abeja en el gimnasio?##Zumba.
+Cortos|¿Qué le dice una pared a otra pared?##Nos vemos en la esquina.
+Cortos|¿Cuál es el colmo de un electricista?##Que su esposa se llame Luz y sus hijos le sigan la corriente.
+Cortos|¿Qué le dice el número 3 al número 30?##Para ser como yo, tienes que ser sincero.
+Cortos|¿Qué le dice una taza a otra taza?##¿Qué te cuentas, tazita?
+Cortos|¿Por qué la escoba está feliz?##Porque ya barrió con todo.
+Cortos|¿Qué le dice un semáforo a otro?##No me mires, que me pongo rojo.
+Cortos|¿Cuál es el colmo de un pintor?##Que lo dejen en blanco.
+Cortos|¿Qué le dice un techo a otro techo?##Techo de menos.
+Cortos|¿Qué hace un perro con un taladro?##Taladrando.
+Cortos|¿Qué le dice la luna al sol?##Qué brillante eres, pero yo trabajo de noche.
+Cortos|¿Cuál es el colmo de un zapatero?##Que sus hijos anden descalzos.
+Cortos|¿Qué le dice un pez a otro pez?##Nada.
+Cortos|¿Por qué las focas del circo miran siempre hacia arriba?##Porque ahí están los focos.
+Cortos|¿Qué le dice una calculadora a otra?##Cuenta conmigo.
+Cortos|¿Cuál es el café más peligroso del mundo?##El ex-preso.
+Cortos|¿Qué le dice un cable a otro cable?##Somos los intermediarios de la energía.
+Cortos|¿Qué hace una vaca cuando sale el sol?##Sombra.
+Cortos|¿Cuál es el colmo de un matemático?##Que su pareja le diga que no tiene punto de comparación.
+Cortos|¿Qué es un punto verde en el campo?##Un guisante exiliado.
+Cortos|¿Por qué el tomate no puede dormir?##Porque la ensalada lo tiene aliñado de nervios.
+Cortos|¿Qué le dice un zapato a otro?##¡Qué vida más pisoteada llevamos!
+Cortos|¿Cómo se despiden los químicos?##Ácido un placer.
+Cortos|¿Qué le dice una gallina a otra?##No me cacarees tanto.
+Cortos|¿Cuál es el animal que más moja?##El pez, porque siempre está mojado.
+Cortos|¿Qué hace un mudo bailando?##Mímica.
+Cortos|¿Por qué el reloj se fue al médico?##Porque tenía el tiempo contado.
+Cortos|¿Qué le dice un jardinero a otro?##Seamos felices mientras podamos.
+Cortos|¿Cuál es el colmo de un fotógrafo?##Que lo dejen en negativo.
+Cortos|¿Qué hace una abeja a la hora de la siesta?##Zzzzzumba la cama.
+Cortos|¿Qué le dice una piedra a otra?##Roca-mos en paz.
+Cortos|¿Qué le dice la sal al azúcar?##Dulce, no seas tan empalagosa.
+Cortos|¿Por qué las nubes llevan paraguas?##Para que no se les moje la cabeza.
+Cortos|¿Qué hace un árbol en el cine?##Ver la película de las hojas.
+Cortos|¿Cuál es el colmo de un campesino?##Que lo dejen sin cosecha de ideas.
+Cortos|¿Qué le dice una lámpara a otra lámpara?##Me quedo sin luz si te vas.
+Cortos|¿Cuál es el colmo de una cocinera?##Que se le queme la tarea.
+Cortos|¿Por qué el esqueleto no fue a la fiesta?##Porque no tenía a nadie con quien bailar.
+Cortos|¿Qué le dice el cero a la ocho?##Bonito cinturón.
+Cortos|¿Qué le dice una escalera a otra?##Nos vemos arriba.
+Cortos|¿Por qué la computadora fue al doctor?##Porque tenía un virus.
+Cortos|¿Qué le dice el teclado al ratón?##No me hagas clic si no es en serio.
+Cortos|¿Qué hace una tortuga con prisa?##Se queda en casa, que es más rápido.
+Cortos|Un lápiz le dice a otro: «Tengo una buena punta».##El otro responde: «Y yo, un gran borrador de ideas».
+Cortos|¿Qué es lo que sube y baja pero no se mueve?##La escalera.
+Cortos|¿Por qué el café fue a terapia?##Porque estaba muy molido.
+Cortos|¿Qué le dice un huevo a una sartén?##Me tienes frito.
+Cortos|¿Qué le dice una vela a otra?##Qué llama tan bonita tienes.
+Cortos|¿Cuál es el colmo de un cartero?##Que lo dejen sin carta blanca.
+Cortos|¿Por qué el mar no se seca?##Porque tiene muchos ríos que le echan una mano.
+Cortos|¿Qué hace una almohada en un concierto?##Descansar los oídos.
+Cortos|¿Cuál es el colmo de una abeja?##Que le salga el tiro por la miel.
+Cortos|¿Qué le dice un mango a otro mango?##Qué dulce coincidencia.
+Cortos|¿Qué le dice el pan al queso?##Contigo me siento completo.
+Cortos|¿Cuál es el colmo de una mariposa?##Que le dé un ataque de nervios en pleno vuelo.
+Animales|¿Qué le dice un gusano a otro?##Voy a dar una vuelta a la manzana.
+Animales|¿Qué le dice un pulpo a otro pulpo?##Tengo ocho razones para abrazarte.
+Animales|¿Por qué los pájaros vuelan hacia el sur en invierno?##Porque caminando tardarían demasiado.
+Animales|¿Qué hace un pez en el cine?##Ver las películas de aletas.
+Animales|¿Cómo se llama un oso sin dientes?##Un oso de goma.
+Animales|¿Qué le dice una jirafa a otra?##Cuánto tiempo sin verte, ¡qué alto has llegado!
+Animales|¿Qué le dice un caracol a otro?##Si ves a mi casa, dile que ya voy.
+Animales|¿Qué hace un perro en un barco?##Ladra al capitán.
+Animales|¿Por qué el elefante no usa computadora?##Porque le tiene miedo al ratón.
+Animales|¿Qué le dice una cebra a otra?##Qué rayado está el día.
+Animales|¿Qué hace una gallina en el cine?##Ve la película de los huevos fritos.
+Animales|¿Cuál es el animal más antiguo?##La cebra, porque está en blanco y negro.
+Animales|¿Qué le dice un gato a otro gato?##Miau-ravilloso día.
+Animales|¿Qué hace un león en una fiesta?##Se pone melena nueva.
+Animales|¿Cuál es el colmo de un pez?##Morir ahogado.
+Animales|¿Qué le dice una oveja a otra?##Me estás pastando los nervios.
+Animales|¿Cómo se llama un perro sin patas?##No importa cómo lo llames, no va a venir.
+Animales|¿Qué hace una araña en una fiesta?##Teje amistades.
+Animales|¿Por qué el pato cruzó la calle?##Para llegar al estanque de enfrente.
+Animales|¿Qué le dice un conejo a otro?##Eres un zanahoria de persona.
+Animales|¿Qué le dice una rana a su hijo?##Ya te lo dije: no saltes la comida.
+Animales|¿Por qué los peces no usan WiFi?##Porque ya están dentro de la red.
+Animales|¿Qué hace un pingüino en la playa?##Pide hielo en su refresco.
+Animales|¿Qué le dice una mariposa a una oruga?##Un día tú también serás libre.
+Animales|¿Qué le dice la hormiga al elefante?##No me pises, que estoy trabajando.
+Animales|¿Qué hace un caballo en la biblioteca?##Lee entre líneas de trote.
+Animales|¿Qué le dice una vaca a otra?##Estoy mu contenta de verte.
+Animales|¿Cómo duerme un pez?##Con las aletas sobre las algas.
+Animales|¿Qué le dice un loro a otro?##No repitas lo que digo.
+Animales|¿Por qué la jirafa nunca gana a las escondidas?##Porque siempre asoma la cabeza.
+Animales|¿Qué hace un koala cuando llueve?##Se aferra al paraguas del árbol.
+Animales|¿Qué le dice un burro a otro?##No me hables en ese tono, que me da hi-ha.
+Animales|¿Cuál es el colmo de un loro?##Que no sepa repetir una buena noticia.
+Animales|¿Qué le dice una abeja a su amiga?##Qué dulce eres, parece que tienes miel en el alma.
+Animales|¿Por qué el perro se sentó junto al fuego?##Porque quería ser un perro caliente.
+Animales|¿Qué le dice el delfín al tiburón?##Sonríe, que la vida es más ligera con amigos.
+Animales|¿Qué hace una tortuga en una carrera?##Gana en constancia.
+Animales|¿Cómo se saludan los caracoles?##Con un abrazo muy lento pero muy sentido.
+Animales|¿Qué le dice un canario a otro?##Estás cantando muy bien hoy.
+Animales|¿Qué hace un pato con una linterna?##Alumbra con su pata-ta.
+Animales|¿Qué le dice la luciérnaga al sapo?##No tengas miedo de la oscuridad, yo te alumbro.
+Animales|¿Cuál es el colmo de un gallo?##Que lo despierten con un despertador.
+Animales|¿Qué le dice un pájaro carpintero a un árbol?##Toc, toc, ¿se puede?
+Animales|¿Qué hace un camello en el supermercado?##Compra mucha agua para el viaje.
+Animales|¿Qué le dice un cocodrilo a su amigo?##Tienes una sonrisa que da miedo, ¡pero me gusta!
+Animales|¿Por qué las ranas son tan optimistas?##Porque siempre ven el lado verde de la vida.
+Animales|¿Qué le dice una ardilla a otra?##Guarda esta nuez para los días tristes.
+Animales|¿Cuál es el colmo de una tortuga?##Llegar tarde a su propia carrera.
+Animales|¿Qué le dice el mono al plátano?##Eres lo mejor que me ha pelado.
+Animales|¿Qué hace un oso polar en la fiesta?##Rompe el hielo.
+Animales|¿Qué le dice el gallo a la gallina?##Te quiero con todo mi cantar.
+Animales|¿Cuál es el colmo de un ratón?##Que su gato le dé un abrazo de oso.
+Adivinanzas|Oro parece, plata no es. ¿Qué es?##El plátano.
+Adivinanzas|Blanca por dentro, verde por fuera. Si quieres que te lo diga, espera.##La pera.
+Adivinanzas|Tengo agujas y no sé coser, tengo números y no sé leer. ¿Qué soy?##El reloj.
+Adivinanzas|Cuanto más seca, más moja. ¿Qué es?##La toalla.
+Adivinanzas|Vuelo sin alas, silbo sin boca, azoto sin manos y no se me ve. ¿Qué soy?##El viento.
+Adivinanzas|Tiene dientes y no come, tiene cabeza y no es persona. ¿Qué es?##El ajo.
+Adivinanzas|Redondo como una moneda y alumbra de noche. ¿Qué es?##La luna.
+Adivinanzas|Entre más grande soy, menos se ve. ¿Qué soy?##La oscuridad.
+Adivinanzas|Va por el campo y no pisa el suelo, tiene alas y no es pájaro. ¿Qué es?##La mariposa.
+Adivinanzas|Muchas hermanitas en una casita, todas con sombrero de color. ¿Qué son?##Los lápices de colores.
+Adivinanzas|Tengo ciudades pero no casas, tengo montañas pero no árboles, tengo agua pero no peces. ¿Qué soy?##Un mapa.
+Adivinanzas|Se rompe sin tocarlo. ¿Qué es?##El silencio.
+Adivinanzas|Siempre viene pero nunca llega. ¿Qué es?##El mañana.
+Adivinanzas|Tiene patas pero no camina, tiene respaldo pero no habla. ¿Qué es?##La silla.
+Adivinanzas|Cuanto más le quitas, más grande se hace. ¿Qué es?##Un agujero.
+Adivinanzas|Lo tienes tú y lo usan los demás más que tú. ¿Qué es?##Tu nombre.
+Adivinanzas|Soy alta cuando soy joven y baja cuando soy vieja. ¿Qué soy?##La vela.
+Adivinanzas|Tengo cuello pero no cabeza, tengo cuerpo pero no brazos. ¿Qué soy?##Una botella.
+Adivinanzas|Dos hermanos que corren juntos pero nunca se alcanzan. ¿Qué son?##Las ruedas de una bicicleta.
+Adivinanzas|Llevo mi casa a cuestas y me escondo en ella. ¿Qué soy?##El caracol.
+Adivinanzas|Tengo hojas pero no soy árbol, tengo lomo pero no soy animal. ¿Qué soy?##Un libro.
+Adivinanzas|Canta sin boca, vuela sin alas y aun así llega a tu casa. ¿Qué es?##La música.
+Adivinanzas|Tengo manos pero no puedo aplaudir. ¿Qué soy?##El reloj.
+Adivinanzas|Si me nombras, desaparezco. ¿Qué soy?##El silencio.
+Adivinanzas|Una señorita muy aseñorada que siempre va con el traje mojado. ¿Quién es?##La lengua.
+Adivinanzas|Es redonda como un plato y con ella juegan los niños. ¿Qué es?##La pelota.
+Adivinanzas|Cien amigos tengo en un cajón, y aunque son pequeños, tienen gran razón. ¿Qué son?##Las letras.
+Adivinanzas|Mientras más caliente estoy, más fresco me vuelvo. ¿Qué soy?##El pan.
+Adivinanzas|Soy transparente pero me ves, me rompo fácil y me pisas. ¿Qué soy?##El vidrio.
+Adivinanzas|Cuando está cerrado no se ve, pero cuando se abre, lo ves todo. ¿Qué es?##El ojo.
+Adivinanzas|En el cielo vive, no es nube ni es ave, y de noche alumbra. ¿Qué es?##La estrella.
+Adivinanzas|Corre y no tiene pies, sube y no tiene escalón. ¿Qué es?##El agua en la fuente.
+Adivinanzas|Un arca llena de gracia, que nunca nadie la abrió. ¿Qué es?##El huevo.
+Adivinanzas|Cuanto más lo lavas, más sucio se pone. ¿Qué es?##El agua del baño.
+Adivinanzas|Todos pasan por mí y yo no paso por nadie. ¿Qué soy?##La calle.
+Adivinanzas|Hay una cosa que nadie quiere tener pero nadie quiere perder. ¿Qué es?##Un juicio.
+Adivinanzas|Tiene copa pero no es sombrero, tiene tronco pero no es elefante. ¿Qué es?##El árbol.
+Adivinanzas|En el mar no me moja, en el fuego no me quema, y en el aire no me llevo. ¿Qué soy?##La sombra.
+Adivinanzas|Se puede cortar sin cuchillo, se puede romper sin tocar. ¿Qué es?##La conversación, o la baraja.
+Adivinanzas|Mientras más me pones, más ligero te sientes. ¿Qué soy?##Una sonrisa.
+Adivinanzas|Tiene cinco dedos pero no tiene vida. ¿Qué es?##El guante.
+Adivinanzas|Blanco por dentro, blanco por fuera, y en un día de frío bien me quiero. ¿Qué soy?##La nieve.
+Adivinanzas|Un campo lleno de cosas que nunca se siembran. ¿Qué es?##El cielo con estrellas.
+Adivinanzas|Hago llorar sin tener pena, y no tengo ni voz ni oído. ¿Qué soy?##La cebolla.
+Adivinanzas|Cuanto más grande es, menos se ve. ¿Qué es?##La noche.
+Niños|¿Por qué el niño llevó una escalera a la escuela?##Porque quería pasar de grado.
+Niños|¿Qué le dice un lápiz a una hoja?##Hoy voy a escribir tu historia.
+Niños|¿Qué hace un fantasma con el helado?##Se lo come en forma de bu-bu.
+Niños|¿Por qué el libro fue al hospital?##Porque se le cayeron las hojas.
+Niños|¿Qué le dice un globo a otro globo?##No me pinches la ilusión.
+Niños|¿Qué hace un payaso cuando llueve?##Cambia la nariz por un paraguas.
+Niños|¿Por qué la escuela se puso triste?##Porque se quedó sin clases.
+Niños|¿Qué le dice el helado al niño?##Cómeme rápido, que me derrito de gusto.
+Niños|¿Cuál es el postre favorito de los fantasmas?##El helado de vainilla boo.
+Niños|¿Qué le dice un robot a otro?##Tienes buenos circuitos hoy.
+Niños|¿Qué le dice una galleta a un vaso de leche?##Eres mi mejor compañero.
+Niños|¿Por qué el niño tenía un reloj en el patio?##Porque quería ver pasar el recreo.
+Niños|¿Qué hace un dinosaurio en el cumpleaños?##Rawr-ega los regalos.
+Niños|¿Qué le dice un cuaderno a un lápiz?##Sin ti no soy nada.
+Niños|¿Cómo se llama el hada que vive en la cocina?##El hada madrina de las tortas.
+Niños|¿Por qué la pelota nunca se cansa?##Porque siempre rebota con energía.
+Niños|¿Qué le dice una bicicleta a un niño?##Pedalea conmigo y llegaremos lejos.
+Niños|¿Qué hace un superhéroe cuando se cansa?##Se pone la capa de dormir.
+Niños|¿Por qué el gusano es buen alumno?##Porque siempre está en los libros.
+Niños|¿Qué hace un payaso en una biblioteca?##Cuenta chistes en voz bajita.
+Niños|¿Qué le dice un tren a otro tren?##Chu-chu, vamos juntos.
+Niños|¿Cuál es el colmo de un pastelero?##Que su pastel le salga con mucha crema.
+Niños|¿Qué le dice una nube a otra nube?##Vamos a jugar a las formas.
+Niños|¿Qué le dice una pizza a otra?##Qué rebanada de día.
+Niños|¿Qué hace un monstruo debajo de la cama?##Cuenta calcetines perdidos.
+Niños|¿Por qué el perro leía un cuento?##Porque quería aprender a ladrar mejor.
+Niños|¿Cuál es el juego favorito de los números?##Las sumas escondidas.
+Niños|¿Qué le dice un castillo de arena al mar?##Por favor, sé amable conmigo.
+Niños|¿Por qué la jirafa llevaba bufanda enorme?##Porque tenía el cuello muy largo para el frío.
+Niños|¿Qué le dice una vaca a su ternero?##Lávate los cuernos antes de comer.
+Niños|¿Qué hace un pirata en el parque?##Busca el tesoro bajo el columpio.
+Niños|¿Qué le dice un tambor a una guitarra?##Hagamos música juntos.
+Niños|¿Qué le dice un chocolate al niño?##Estoy feliz de ser parte de tu día.
+Niños|¿Qué hace un astronauta cuando tiene sueño?##Duerme sin gravedad.
+Niños|¿Por qué la luna fue a la escuela?##Para aprender a brillar con luz propia.
+Niños|¿Qué le dice una taza a la tetera?##Sírveme un poco de alegría.
+Niños|¿Cómo se llama el mago de la cocina?##Abracadabra-cadabra de azúcar.
+Niños|¿Qué hace un pulpo en la fiesta?##Aplaude con ocho manos.
+Niños|¿Qué le dice una hoja a un árbol en otoño?##Me voy a bailar con el viento.
+Niños|¿Cuál es el deporte favorito de las nubes?##El pase de lluvia.
+Niños|¿Qué le dice un cuento a un niño?##Ábreme y viajarás.
+Niños|¿Por qué las estrellas no hacen ruido?##Porque brillan en silencio.
+Niños|¿Qué hace un elefante en una tienda de globos?##Hace mucho cuidado y pocos ruidos.
+Niños|¿Qué le dice un barquito de papel a un charco?##Seamos grandes aventureros.
+Niños|¿Por qué el oso come miel?##Porque la vida es mejor con dulzura.
+Niños|¿Cuál es el postre favorito de las abejas?##La tarta de panal.
+Niños|¿Qué hace un conejo en el mercado?##Compra zanahorias a saltitos.
+Niños|¿Qué le dice una mochila a un niño?##Llévame contigo y guardaré tus sueños.
+Niños|¿Qué le dice un trompo a una peonza?##Danza conmigo.
+Niños|¿Qué hace una oruga cuando está contenta?##Se pone su mejor capullo.
+Niños|¿Por qué los ratones no pelean?##Porque prefieren el queso de la paz.
+Cotidiano|Mi cama y yo tenemos una relación muy sólida.##Ella me sostiene y yo no la dejo nunca por las mañanas.
+Cotidiano|Dicen que el dinero no da la felicidad.##Pero compra pizza, que es casi lo mismo.
+Cotidiano|Yo no estoy dormido, solo descanso los ojos muy fuerte.
+Cotidiano|Hoy me puse a dieta.##Ya llevo cinco minutos y estoy pensando en el postre.
+Cotidiano|Mi plan de ejercicio es simple:##Pasar frente al gimnasio y sentirme saludable.
+Cotidiano|Le dije a mi paciencia que se fuera de vacaciones.##Todavía no ha vuelto.
+Cotidiano|Mi nevera es como una película de suspenso:##Siempre la abro esperando algo, pero nunca pasa nada.
+Cotidiano|El lunes es como una puerta pesada.##Cuesta abrirla, pero detrás hay una semana entera.
+Cotidiano|Cuando dicen «cinco minutos más» al despertar,##Mi cuerpo lo entiende como cinco horas.
+Cotidiano|Soy tan organizado que tengo una lista de las listas pendientes.
+Cotidiano|Mi mejor idea siempre llega justo cuando me estoy durmiendo.
+Cotidiano|Estoy aprendiendo a cocinar.##Ya domino el arte de calentar agua sin quemarla.
+Cotidiano|Una cosa buena de la lluvia:##Nunca tienes que explicar por qué te quedas en casa.
+Cotidiano|Mi mochila pesa tanto que ya me pidió un seguro médico.
+Cotidiano|No es desorden, es un sistema de archivo que solo yo entiendo.
+Cotidiano|Dicen que los lunes son difíciles,##Pero nadie ha preguntado cómo se siente el lunes.
+Cotidiano|A veces pienso que mi teléfono me conoce mejor que yo:##Ya sabe cuántas veces miro el reloj sin saber la hora.
+Cotidiano|El café y yo tenemos algo especial:##Sin él no funciono, con él funciono demasiado.
+Cotidiano|Cuando era joven quería cambiar el mundo.##Ahora me conformo con cambiar la hora del despertador.
+Cotidiano|Mi sofá y yo mantenemos una relación a distancia muy corta.
+Cotidiano|La mejor parte de las vacaciones:##Planearlas. La segunda mejor: volver a casa y dormir.
+Cotidiano|Hice una lista de cosas por hacer.##Tachar «hacer la lista» ya me hizo sentir productivo.
+Cotidiano|Hoy fui puntual.##El reloj no se lo creía.
+Cotidiano|Le pedí a la vida un respiro.##Me mandó un domingo.
+Cotidiano|Cada vez que veo una escalera, pienso:##Qué bonito invento el ascensor.
+Cotidiano|Me gusta tanto mi almohada que cuando viajo la extraño más que a mi familia.##Bueno, casi.
+Cotidiano|Mi coche y yo tenemos algo en común:##Los dos hacemos ruidos raros por las mañanas.
+Cotidiano|Mi dieta es muy equilibrada:##Un trozo de torta en cada mano.
+Cotidiano|La puntualidad es una virtud.##Yo la admiro desde lejos, siempre llegando tarde.
+Cotidiano|Prometí no comer más dulces.##Pero los dulces no prometieron dejarme en paz.
+Cotidiano|Mi mascota es tan perezosa que ya me pidió que le haga la siesta.
+Cotidiano|El WiFi de mi casa y yo tenemos algo en común:##Los dos fallamos justo cuando más nos necesitan.
+Cotidiano|Me dijeron que contara ovejas para dormir.##Ya voy por el rebaño 20 y no me duermo, pero tengo lana para un suéter.
+Cotidiano|La alarma de las seis de la mañana es una ofensa personal.
+Cotidiano|Cuando llueve y estoy en casa, soy el ser humano más feliz del mundo.
+Cotidiano|Mi plan de la tarde: ser tan productivo como una planta.##Respiro y me asoleo.
+Cotidiano|Dicen que reír alarga la vida.##Entonces ya me estoy asegurando una larga jubilación.
+Cotidiano|Estoy tan cansado que mi cansancio ya pidió vacaciones.
+Cotidiano|No es que me levante tarde,##Es que mi día empieza cuando yo quiero.
+Cotidiano|La tarea más difícil del día:##Elegir qué cenar.
+Cotidiano|Mi propósito de año nuevo es ser más relajado.##Ya voy bien: llevo diez días sin cumplir mis propósitos.
+Cotidiano|Hay dos tipos de personas:##Los que dicen que cocinan y los que sobreviven a sus platos.
+Cotidiano|Cuando tengo miedo, canto.##Los miedos ya me piden que me calle.
+Cotidiano|Mi mejor clase de yoga es abrirme el refrigerador y estirar la mano.
+Cotidiano|Tengo mucho que hacer hoy,##Por eso voy a empezar mañana.
+Cotidiano|Fui a comprar pan y volví con una planta, dos libros y ningún pan.
+Cotidiano|Dicen que la vida da limones.##Yo pido azúcar y hago limonada para todos.
+Cotidiano|Hoy me siento como una batería al 1%:##Todavía puedo hacer una cosa más, pero no sé cuál.
+Cotidiano|Me gusta la gente puntual.##Así me ahorro el tiempo de esperar a los demás.
+Cotidiano|Tengo la mejor memoria del mundo:##Recuerdo cada cosa que olvidé.
+Tecnología|¿Por qué el programador se quedó sin amigos?##Porque no hacía más que «debuguear» sus emociones.
+Tecnología|¿Qué le dice un bit a otro bit?##Nos vemos en el byte.
+Tecnología|¿Por qué la computadora tiene frío?##Porque dejó las ventanas abiertas.
+Tecnología|¿Qué hace un programador en la playa?##Busca bugs en la arena.
+Tecnología|¿Cuál es el animal favorito del programador?##La serpiente de Python.
+Tecnología|¿Por qué el celular fue al psicólogo?##Porque tenía demasiadas aplicaciones en la cabeza.
+Tecnología|¿Qué le dice una impresora a otra?##Vamos a hacer una copia de seguridad de nuestra amistad.
+Tecnología|¿Qué le dice el cargador al celular?##Sin mí, no tienes energía.
+Tecnología|¿Cómo se despiden los informáticos?##Hasta el próximo reinicio.
+Tecnología|¿Por qué el robot nunca se estresa?##Porque tiene cables de calma.
+Tecnología|¿Qué le dice un algoritmo a otro?##Seguimos el mismo camino, ¿verdad?
+Tecnología|¿Qué hace un hacker bueno?##Protege la casa de los gatos.
+Tecnología|¿Por qué la tableta es tan relajada?##Porque siempre está en modo avión.
+Tecnología|¿Cuál es el colmo de un técnico en internet?##Estar siempre desconectado.
+Tecnología|¿Por qué el ratón del computador es feliz?##Porque tiene a todos haciéndole clic.
+Tecnología|¿Qué le dijo la nube al servidor?##Eres mi almacenamiento favorito.
+Tecnología|¿Qué hace un cable USB en una fiesta?##Se conecta con todos.
+Tecnología|¿Por qué el robot aspiradora es filósofo?##Porque siempre da vueltas a las cosas.
+Tecnología|¿Qué le dijo el teclado al monitor?##Contigo me siento completo.
+Tecnología|¿Cómo se llama el técnico más tranquilo?##El que nunca se queda sin batería.
+Tecnología|¿Por qué la contraseña nunca duerme?##Porque siempre está en guardia.
+Tecnología|¿Qué hace un píxel cuando está solo?##Se aburre de ser un punto.
+Tecnología|¿Qué dijo el código al comentario?##Sin ti, nadie me entendería.
+Tecnología|¿Por qué el emoji sonríe tanto?##Porque nunca lee las noticias.
+Tecnología|¿Cuál es el deporte favorito de los robots?##El baloncesto con circuitos.
+Tecnología|¿Qué le dijo el reloj inteligente al corazón?##Estoy contando contigo.
+Tecnología|¿Cuál es el colmo de un navegador?##Tener muchas pestañas y ninguna calma.
+Tecnología|¿Qué le dice el wifi a la contraseña?##Sin ti, no me conectas con nadie.
+Tecnología|¿Qué hizo el computador cuando se cansó?##Entró en modo de suspensión.
+Tecnología|¿Por qué el teléfono antiguo es sabio?##Porque ha vivido muchas actualizaciones.
+Tecnología|¿Qué le dijo el archivo al disco duro?##Me siento muy comprimido hoy.
+Tecnología|¿Cuál es el postre favorito de los robots?##Los bytes de chocolate.
+Tecnología|¿Qué hace una app cuando se siente sola?##Envía una notificación a quien sea.
+Tecnología|¿Por qué la antena es tan simpática?##Porque capta todas las buenas ondas.
+Tecnología|¿Qué dijo el altavoz a la canción?##Contigo me siento más alto.
+Tecnología|¿Qué hace el cursor cuando está nervioso?##Parpadea sin parar.
+Tecnología|¿Qué le dijo el código QR a la persona?##Escanéame, que tengo cosas buenas que contarte.
+Tecnología|¿Por qué el asistente de voz nunca se enoja?##Porque siempre responde con calma.
+Tecnología|¿Cuál es la comida favorita de un virus informático?##Los archivos adjuntos sospechosos.
+Tecnología|¿Qué dijo la pila de repuesto?##Estoy lista, ¡aunque nadie me llame hasta el final!
+Tecnología|¿Qué le dijo la foto a la galería?##Guárdame siempre en tu memoria.
+Cortos|¿Qué le dice un ladrillo a otro?##Estamos construyendo algo grande juntos.
+Cotidiano|Mi mejor superpoder es encontrar comida en la cocina a medianoche sin encender la luz.
+Animales|¿Qué hace una abeja con el teléfono?##Zumba la línea.
+Niños|¿Qué animal siempre llega con hambre a la mesa?##El oso hormiguero, que se come todo en fila.
+Tecnología|¿Por qué el wifi fue a terapia?##Porque sentía que siempre perdía la conexión.
+Adivinanzas|Soy ligera como una pluma, pero ni la persona más fuerte me aguanta mucho rato. ¿Qué soy?##La respiración.
+Adivinanzas|Doy luz sin ser fuego y caliento sin quemar. ¿Qué soy?##El sol.
+Cortos|¿Qué le dice una almohada a la cama?##Descansemos juntas.
