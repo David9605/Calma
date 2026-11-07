@@ -25,6 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Dar permiso de ejecución a gradlew
+        run: chmod +x gradlew
+
       - name: Comprobar que existe la llave de firma
         run: |
           if [ -z "$KEYSTORE_B64" ]; then
