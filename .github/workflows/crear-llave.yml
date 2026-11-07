@@ -45,7 +45,7 @@ jobs:
           printf '%s' "$B64" > salida/keystore-base64.txt
 
       - name: Guardar resultado (se borra solo en 1 día)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: llave-de-firma-PRIVADA
           path: salida/*
