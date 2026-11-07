@@ -1,6 +1,7 @@
 name: Compilar y probar
 
 # Se ejecuta solo cada vez que subes cambios. Te avisa si algo se rompió y te deja un APK de prueba.
+# Si falla: abre la ejecución y mira la pestaña "Summary" (arriba a la izquierda). Ahí sale la lista corta de errores.
 on:
   push:
     branches: [main, master]
@@ -18,6 +19,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Comprobar que el proyecto está completo
+        shell: bash
+        run: |
+          missing=0
+          for f in settings.gradle.kts build.gradle.kts gradle.properties version.properties \
+                   gradle/libs.versions.toml app/build.gradle.kts app/proguard-rules.pro \
+                   app/src/main/AndroidManifest.xml app/src/main/assets/chistes.txt \
+                   app/src/main/java/com/calmaceleste/app/MainActivity.kt \
+                   app/src/main/java/com/calmaceleste/app/ui/Fun.kt \
+                   app/src/main/res/values/strings.xml \
+                   app/src/test/java/com/calmaceleste/app/CatalogTest.kt; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Falta el archivo: $f"
+              missing=1
+            fi
+          done
+          if [ "$missing" != 0 ]; then
+            echo "::error::Faltan archivos del proyecto. Súbelos respetando las carpetas."
+            exit 1
+          fi
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -32,10 +54,12 @@ jobs:
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
 
       - name: Pruebas automáticas
-        run: gradle testDebugUnitTest --stacktrace
+        shell: bash
+        run: gradle testDebugUnitTest --console=plain --warning-mode=none 2>&1 | tee build.log
 
       - name: Compilar APK de prueba
-        run: gradle assembleDebug --stacktrace
+        shell: bash
+        run: gradle assembleDebug --console=plain --warning-mode=none 2>&1 | tee -a build.log
 
       - name: Guardar APK de prueba
         uses: actions/upload-artifact@v4
@@ -44,10 +68,29 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 14
 
-      - name: Guardar informe de pruebas si fallan
+      - name: Resumen de errores
+        if: failure()
+        shell: bash
+        run: |
+          grep -E '^e: ' build.log | sed -E 's#file:///home/runner/work/[^/]+/[^/]+/##' | sort -u | head -60 > errores.txt || true
+          if [ ! -s errores.txt ]; then
+            sed -n '/What went wrong/,/\* Try/p' build.log | head -40 > errores.txt || true
+          fi
+          {
+            echo "## Errores de compilación"
+            echo '```'
+            cat errores.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          head -10 errores.txt | while IFS= read -r l; do echo "::error::$l"; done
+
+      - name: Guardar el registro si algo falla
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: informe-de-pruebas
-          path: app/build/reports/tests/
+          name: registro-de-errores
+          path: |
+            build.log
+            app/build/reports/tests/
           retention-days: 7
+          if-no-files-found: ignore
