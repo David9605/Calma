@@ -238,7 +238,7 @@ private fun LinkDialog(onSave: (String, String) -> Unit, onDismiss: () -> Unit) 
 }
 
 @Composable
-private fun VideoBox(item: MediaItem) {
+fun VideoBox(item: MediaItem) {
     key(item.id) {
         AndroidView(
             modifier = Modifier.fillMaxWidth().height(230.dp),

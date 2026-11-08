@@ -52,11 +52,13 @@ private data class Tile(val emoji: String, val label: String, val route: String)
 
 private val quickTiles = listOf(
     Tile("🌬️", "Respirar", Routes.BREATHING),
+    Tile("📖", "Promesas de Dios", Routes.PROMISES),
+    Tile("🕊️", "Biblia hablada", Routes.BIBLE),
     Tile("🎵", "Mi canción", Routes.SONGS),
     Tile("😄", "Chistes", Routes.JOKES),
     Tile("🎮", "Juegos", Routes.GAMES),
-    Tile("📞", "Mi gente", Routes.CONTACTS),
-    Tile("📔", "Mi diario", Routes.DIARY)
+    Tile("💞", "Mensajes de amor", Routes.LOVE),
+    Tile("📞", "Mi gente", Routes.CONTACTS)
 )
 
 @Composable
@@ -107,6 +109,22 @@ fun HomeScreen(go: (String) -> Unit) {
                 }
                 Spacer(Modifier.height(12.dp))
             }
+
+            Appear(550, Modifier.fillMaxWidth()) {
+                val promise = remember { com.calmaceleste.app.data.Promises.today() }
+                SoftCard(onClick = { go(Routes.PROMISES) }) {
+                    Text("📖 Promesa de hoy", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Spacer(Modifier.height(6.dp))
+                    Text("«${promise.text}»", style = MaterialTheme.typography.bodyLarge)
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        promise.ref,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            Spacer(Modifier.height(12.dp))
 
             Appear(650, Modifier.fillMaxWidth()) {
                 SoftCard(onClick = { go(Routes.CRISIS) }) {
@@ -194,6 +212,9 @@ private val allTools = listOf(
     ToolItem("💙", "Me siento ansioso (10 pasos)", "Una secuencia guiada que se adapta a ti.", Routes.SESSION),
     ToolItem("🌬️", "Respiración guiada", "4-7-8, en caja, exhalación larga y más.", Routes.BREATHING),
     ToolItem("🖐️", "Anclaje 5-4-3-2-1", "Vuelve al presente con tus sentidos.", Routes.GROUNDING),
+    ToolItem("📖", "Promesas de Dios", "Protección, sanidad y que Él nunca te deja.", Routes.PROMISES),
+    ToolItem("🕊️", "Biblia hablada", "Escucha con los ojos cerrados, acostado.", Routes.BIBLE),
+    ToolItem("💞", "Mensajes de amor", "Notas de voz y videos de quienes te aman.", Routes.LOVE),
     ToolItem("🎵", "Mi canción favorita", "Tu música, sin Internet.", Routes.SONGS),
     ToolItem("🎬", "Mis videos divertidos", "Los que te hacen reír.", Routes.VIDEOS),
     ToolItem("🎶", "Tararea para calmarte", "Ejercicio guiado de tarareo.", Routes.HUM),
@@ -208,7 +229,7 @@ private val allTools = listOf(
     ToolItem("💭", "Registro de pensamientos", "Cuestiona los pensamientos ansiosos.", Routes.THOUGHTS),
     ToolItem("🧭", "Mi plan de crisis", "Tus pasos, escritos con calma.", Routes.CRISIS),
     ToolItem("🆘", "Ayuda urgente", "Números de emergencia y de apoyo.", Routes.HELP),
-    ToolItem("🔒", "Privacidad y ajustes", "PIN, huella y borrar mis datos.", Routes.SETTINGS)
+    ToolItem("🔒", "Privacidad y ajustes", "PIN, copia de seguridad, valorar y más.", Routes.SETTINGS)
 )
 
 @Composable

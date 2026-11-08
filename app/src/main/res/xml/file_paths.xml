@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Carpeta privada donde la cámara del teléfono deja los videos grabados desde la app. -->
+    <files-path name="videos" path="videos/" />
+</paths>

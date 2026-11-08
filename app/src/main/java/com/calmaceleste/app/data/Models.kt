@@ -54,6 +54,20 @@ data class MediaItem(
     val isLink: Boolean get() = uri.startsWith("http")
 }
 
+/** Mensajes de amor (notas de voz y videos de familia) y audios de la Biblia hablada. */
+@Serializable
+data class LoveItem(
+    val id: Long,
+    val kind: String, // "voice" | "video" | "bible"
+    val title: String,
+    val from: String = "",
+    val uri: String,
+    val inApp: Boolean = false, // true = el archivo está dentro de la app (entra en la copia de seguridad)
+    val time: Long = 0L
+) {
+    val isVideo: Boolean get() = kind == "video"
+}
+
 @Serializable
 data class GoodItem(
     val id: Long,

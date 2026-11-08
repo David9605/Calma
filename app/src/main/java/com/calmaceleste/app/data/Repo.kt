@@ -22,6 +22,9 @@ class ListStore<T>(
     private val _items = MutableStateFlow(read())
     val items: StateFlow<List<T>> = _items.asStateFlow()
 
+    /** Vuelve a leer el archivo (se usa después de importar una copia de seguridad). */
+    fun reload() { _items.value = read() }
+
     private fun read(): List<T> = try {
         if (file.exists()) json.decodeFromString(serializer, file.readText()) else emptyList()
     } catch (e: Exception) {
@@ -116,6 +119,47 @@ class Prefs(ctx: Context) {
         sp.edit().clear().apply()
     }
 
+    /** Preferencias que entran en la copia de seguridad (nunca el PIN ni la huella). */
+    private val skip = setOf("pin_hash", "pin_salt", "biometric", "onboarded")
+
+    fun exportJson(): String {
+        val o = org.json.JSONObject()
+        for ((k, v) in sp.all) {
+            if (k in skip || v == null) continue
+            val e = org.json.JSONObject()
+            when (v) {
+                is String -> e.put("t", "s").put("v", v)
+                is Int -> e.put("t", "i").put("v", v)
+                is Float -> e.put("t", "f").put("v", v.toDouble())
+                is Boolean -> e.put("t", "b").put("v", v)
+                is Set<*> -> e.put("t", "ss").put("v", org.json.JSONArray(v.map { it.toString() }))
+                else -> continue
+            }
+            o.put(k, e)
+        }
+        return o.toString()
+    }
+
+    fun importJson(text: String) {
+        val o = org.json.JSONObject(text)
+        val ed = sp.edit()
+        for (k in o.keys()) {
+            if (k in skip) continue
+            val e = o.getJSONObject(k)
+            when (e.getString("t")) {
+                "s" -> ed.putString(k, e.getString("v"))
+                "i" -> ed.putInt(k, e.getInt("v"))
+                "f" -> ed.putFloat(k, e.getDouble("v").toFloat())
+                "b" -> ed.putBoolean(k, e.getBoolean("v"))
+                "ss" -> {
+                    val a = e.getJSONArray("v")
+                    ed.putStringSet(k, (0 until a.length()).map { a.getString(it) }.toSet())
+                }
+            }
+        }
+        ed.apply()
+    }
+
     companion object {
         val DEFAULT_PLAN = listOf(
             "Respirar 4-7-8 tres veces.",
@@ -145,6 +189,8 @@ object Repo {
         private set
     lateinit var sessions: ListStore<SessionLog>
         private set
+    lateinit var love: ListStore<LoveItem>
+        private set
 
     @Volatile
     private var seq = 0L
@@ -160,6 +206,7 @@ object Repo {
         media = ListStore(File(dir, "media.json"), ListSerializer(MediaItem.serializer()))
         good = ListStore(File(dir, "good.json"), ListSerializer(GoodItem.serializer()))
         sessions = ListStore(File(dir, "sessions.json"), ListSerializer(SessionLog.serializer()))
+        love = ListStore(File(dir, "love.json"), ListSerializer(LoveItem.serializer()))
     }
 
     @Synchronized
@@ -191,7 +238,8 @@ object Repo {
     fun wipeAll() {
         reminders.items.value.forEach { Scheduler.cancel(appContext, it) }
         contacts.clear(); mood.clear(); thoughts.clear(); reminders.clear()
-        media.clear(); good.clear(); sessions.clear()
+        media.clear(); good.clear(); sessions.clear(); love.clear()
+        listOf("voice", "videos").forEach { File(appContext.filesDir, it).deleteRecursively() }
         prefs.wipe()
     }
 }

@@ -27,7 +27,16 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.calmaceleste.app.BuildConfig
+import com.calmaceleste.app.data.Backup
 import com.calmaceleste.app.data.Repo
+import com.calmaceleste.app.system.rateApp
+import android.net.Uri
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.delay
 
 private fun canUseBiometric(ctx: android.content.Context): Boolean =
@@ -47,15 +56,78 @@ fun SettingsScreen(onBack: () -> Unit, onWiped: () -> Unit) {
     var confirmRemovePin by remember { mutableStateOf(false) }
     var confirmWipe by remember { mutableStateOf(false) }
     val bioAvailable = remember { canUseBiometric(ctx) }
+    val scope = rememberCoroutineScope()
+    var working by remember { mutableStateOf(false) }
+    var importUri by remember { mutableStateOf<Uri?>(null) }
+
+    val exportLauncher = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/zip")) { uri: Uri? ->
+        if (uri != null) {
+            working = true
+            scope.launch {
+                val ok = withContext(Dispatchers.IO) { Backup.export(ctx, uri) }
+                working = false
+                Toast.makeText(
+                    ctx,
+                    if (ok) "Copia guardada. Guárdala en un lugar seguro." else "No se pudo guardar la copia",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+    val importLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
+        if (uri != null) importUri = uri
+    }
 
     ScreenScaffold("Privacidad y ajustes", onBack) {
         SoftCard {
             Text("🔒 Tus datos son solo tuyos", style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(6.dp))
             Text(
-                "Todo lo que escribes y guardas se queda en este teléfono. La app no tiene cuenta, no envía nada a Internet y no usa tu micrófono ni tu ubicación.",
+                "Todo lo que escribes y guardas se queda en este teléfono. La app no tiene cuenta, no envía nada a Internet y no usa tu ubicación. El micrófono solo se usa cuando tú grabas una nota de voz.",
                 style = MaterialTheme.typography.bodyLarge
             )
+        }
+
+        SoftCard {
+            Text("💙 Gracias por descargar Ansiedad Control", style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(6.dp))
+            Text(
+                "Gracias por descargar esta aplicación y por darte un momento para cuidar de ti. Está hecha con mucho cariño para acompañarte. Dios te cuida y no te deja solo.",
+                style = MaterialTheme.typography.bodyLarge
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                "Con cariño, David González Esquerra",
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+
+        SoftCard {
+            Text("⭐ Valorar la aplicación", style = MaterialTheme.typography.titleMedium)
+            SoftText("Si te ayudó, una valoración de 5 estrellas ayuda a que más personas la encuentren.")
+            Spacer(Modifier.height(8.dp))
+            BigButton("⭐⭐⭐⭐⭐  Dar 5 estrellas") { ctx.rateApp() }
+        }
+
+        SoftCard {
+            Text("Copia de seguridad", style = MaterialTheme.typography.titleMedium)
+            SoftText(
+                "Guarda todo en un archivo (diario, contactos, recordatorios, mensajes de amor grabados aquí…) y recupéralo si cambias de teléfono. " +
+                    "No incluye el PIN ni las canciones o videos de tu galería. Guárdalo en un lugar seguro: no está cifrado."
+            )
+            Spacer(Modifier.height(8.dp))
+            BigButton("Exportar mis datos", enabled = !working) { exportLauncher.launch(Backup.suggestedName()) }
+            Spacer(Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = { importLauncher.launch(arrayOf("*/*")) },
+                enabled = !working,
+                modifier = Modifier.fillMaxWidth()
+            ) { Text("Importar una copia") }
+            if (working) {
+                Spacer(Modifier.height(8.dp))
+                LinearProgressIndicator(Modifier.fillMaxWidth())
+            }
         }
 
         SoftCard {
@@ -88,14 +160,35 @@ fun SettingsScreen(onBack: () -> Unit, onWiped: () -> Unit) {
         SoftCard {
             Text("Importante", style = MaterialTheme.typography.titleMedium)
             SoftText(
-                "Calma Celeste es una herramienta de apoyo y bienestar. No es un servicio médico, no diagnostica ni trata ningún trastorno y no sustituye a un profesional de la salud. " +
+                "Ansiedad Control es una herramienta de apoyo y bienestar. No es un servicio médico, no diagnostica ni trata ningún trastorno y no sustituye a un profesional de la salud. " +
                     "Si tu ansiedad es frecuente o te limita en tu vida diaria, hablar con un psicólogo o un médico puede ayudarte mucho."
             )
         }
 
-        SoftText("Calma Celeste · versión ${BuildConfig.VERSION_NAME}")
+        SoftText("Ansiedad Control · versión ${BuildConfig.VERSION_NAME}")
     }
 
+    importUri?.let { uri ->
+        ConfirmDialog(
+            title = "¿Importar esta copia?",
+            text = "Reemplazará los datos que tienes ahora en la app por los de la copia.",
+            confirmLabel = "Importar",
+            onConfirm = {
+                importUri = null
+                working = true
+                scope.launch {
+                    val ok = withContext(Dispatchers.IO) { Backup.import(ctx, uri) }
+                    working = false
+                    Toast.makeText(
+                        ctx,
+                        if (ok) "Datos recuperados" else "Ese archivo no es una copia válida",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            },
+            onDismiss = { importUri = null }
+        )
+    }
     if (showPinDialog) {
         PinDialog(
             onDismiss = { showPinDialog = false },
@@ -188,7 +281,7 @@ fun LockScreen(activity: FragmentActivity, onForgot: () -> Unit, onUnlock: () ->
             }
         )
         val info = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Desbloquear Calma Celeste")
+            .setTitle("Desbloquear Ansiedad Control")
             .setNegativeButtonText("Usar PIN")
             .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG)
             .build()
@@ -307,7 +400,7 @@ private val onboardPages = listOf(
     OnboardPage("💙", "Bienvenido a tu rincón de calma", "Un espacio hecho con tus cosas: tu música, tus videos, tus personas y tus propios ejercicios."),
     OnboardPage("🌬️", "Cuando la ansiedad llegue", "Toca el botón grande «Me siento ansioso». Te guiaré con 10 pasos cortos: respirar, distraerte y sentirte acompañado. Si hace falta, te daré más."),
     OnboardPage("🔒", "Privado y sin Internet", "Todo se guarda solo en tu teléfono. No hay cuentas ni anuncios, y todo funciona sin conexión."),
-    OnboardPage("🤝", "Una cosa importante", "Calma Celeste es un apoyo, no un tratamiento médico ni un sustituto de un profesional. En una emergencia, usa la sección «Ayuda urgente» o llama a los servicios de tu país.")
+    OnboardPage("🤝", "Una cosa importante", "Ansiedad Control es un apoyo, no un tratamiento médico ni un sustituto de un profesional. En una emergencia, usa la sección «Ayuda urgente» o llama a los servicios de tu país.")
 )
 
 @Composable

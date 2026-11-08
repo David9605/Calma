@@ -34,6 +34,9 @@ object Routes {
     const val HUM = "hum"
     const val JOKES = "jokes"
     const val SETTINGS = "settings"
+    const val PROMISES = "promises"
+    const val BIBLE = "bible"
+    const val LOVE = "love"
 }
 
 @Composable
@@ -73,6 +76,9 @@ fun AppNav(onWiped: () -> Unit) {
         composable(Routes.MATH) { MathScreen(back) }
         composable(Routes.HUM) { HumScreen(back) }
         composable(Routes.JOKES) { JokesScreen(back) }
+        composable(Routes.PROMISES) { PromisesScreen(back) }
+        composable(Routes.BIBLE) { BibleAudioScreen(back) }
+        composable(Routes.LOVE) { LoveScreen(back) }
         composable(Routes.SETTINGS) { SettingsScreen(back, onWiped) }
     }
 }

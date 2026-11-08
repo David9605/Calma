@@ -54,3 +54,15 @@ fun Context.keepReadAccess(uri: Uri) {
     } catch (_: Exception) {
     }
 }
+
+/** Abre la ficha de la app en Google Play para valorarla. */
+fun Context.rateApp() {
+    val id = packageName.removeSuffix(".debug")
+    try {
+        val i = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$id"))
+        if (this !is Activity) i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(i)
+    } catch (e: Exception) {
+        openUrl("https://play.google.com/store/apps/details?id=$id")
+    }
+}
