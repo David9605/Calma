@@ -17,7 +17,7 @@ keytool -genkeypair -v \
   -alias calmaceleste \
   -keyalg RSA -keysize 2048 -validity 10000 \
   -storepass "$PASS" -keypass "$PASS" \
-  -dname "CN=Calma Celeste, OU=App, O=Calma Celeste, C=VE" >/dev/null 2>&1
+  -dname "CN=Ansiedad Control, OU=App, O=Ansiedad Control, C=VE" >/dev/null 2>&1
 
 base64 -w 0 "$OUT/calmaceleste-upload.jks" 2>/dev/null > "$OUT/keystore-base64.txt" \
   || base64 -i "$OUT/calmaceleste-upload.jks" | tr -d '\n' > "$OUT/keystore-base64.txt"

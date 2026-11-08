@@ -247,3 +247,38 @@ private fun EyesClosedOverlay(
         }
     }
 }
+
+/** Tarjeta corta con una promesa de la Biblia (se muestra en cada paso de «Me siento ansioso»). */
+@Composable
+fun PromiseBanner(p: Promise) {
+    SoftCard(tint = Color(0xFFDDF1FC).copy(alpha = 0.92f)) {
+        Text("📖 ${p.ref}", style = MaterialTheme.typography.labelLarge, color = Color(0xFF0B3954), fontWeight = FontWeight.SemiBold)
+        Spacer(Modifier.height(4.dp))
+        Text("«${p.text}»", style = MaterialTheme.typography.bodyMedium, color = Color(0xFF0B3954))
+    }
+}
+
+/** Contenido del paso 7 (primera ronda): Biblia hablada con los ojos cerrados. */
+@Composable
+fun BibleStepContent() {
+    val ctx = LocalContext.current
+    val all by Repo.love.items.collectAsState()
+    val item = all.firstOrNull { it.kind == "bible" }
+    val controller = remember { SongController(ctx) }
+    DisposableEffect(Unit) { onDispose { controller.stop() } }
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Text(
+            "Acuéstate o ponte cómodo, cierra los ojos y escucha todo el tiempo que quieras. Respira lento. No hay prisa.",
+            style = MaterialTheme.typography.bodyLarge
+        )
+        if (item != null) {
+            SoftText(item.title)
+            BigButton(if (controller.currentId == item.id && controller.playing) "Pausa" else "▶ Escuchar mi audio") {
+                if (controller.currentId == item.id) controller.toggle()
+                else controller.play(MediaItem(item.id, item.title, item.uri, false))
+            }
+        }
+        BigButton("Escuchar en YouTube (desde 15:15)", soft = item != null) { ctx.openUrl(BIBLE_URL) }
+        SoftText("YouTube necesita Internet. Para escuchar sin Internet, añade tu audio en «Biblia hablada».")
+    }
+}

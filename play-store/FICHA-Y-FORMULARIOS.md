@@ -6,7 +6,7 @@ Los textos de la ficha están listos para copiar en `play-store/listing/es-419/`
 ## Datos básicos
 | Campo | Valor |
 |---|---|
-| Nombre de la app (máx. 30) | Calma Celeste: ansiedad |
+| Nombre de la app (máx. 30) | Ansiedad Control |
 | Descripción breve (máx. 80) | `short_description.txt` |
 | Descripción completa (máx. 4000) | `full_description.txt` |
 | Idioma predeterminado | Español (Latinoamérica) – es-419 |
@@ -48,7 +48,7 @@ Capturas recomendadas: pantalla de inicio, un paso de respiración, un minijuego
 | `VIBRATE` | Vibración suave en la respiración y los juegos |
 | `USE_BIOMETRIC` | Desbloquear con huella o rostro (opcional) |
 
-No usa Internet, micrófono, cámara, ubicación ni contactos. No necesita declaraciones especiales (no usa alarmas exactas ni permisos sensibles).
+No usa Internet, ubicación ni contactos. Pide el micrófono solo para grabar notas de voz (se quedan en el teléfono; no se envían). Los videos se graban con la app de cámara del sistema (la app no declara el permiso de cámara). Datos de seguridad: «No se recopilan datos». Declaración del permiso RECORD_AUDIO: se usa solo para grabar notas de voz que el usuario guarda en su dispositivo. No necesita declaraciones especiales (no usa alarmas exactas ni permisos sensibles).
 
 ## Requisito técnico vigente
 Desde el 31 de agosto de 2026, las apps nuevas y las actualizaciones deben apuntar a **Android 16 (API 36)**. Esta app ya apunta a API 36 (`targetSdk = 36`).

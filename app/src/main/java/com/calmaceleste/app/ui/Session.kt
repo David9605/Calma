@@ -37,6 +37,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.calmaceleste.app.data.Promise
+import com.calmaceleste.app.data.Promises
 import com.calmaceleste.app.data.Repo
 import com.calmaceleste.app.data.SessionEngine
 import com.calmaceleste.app.data.SessionLog
@@ -59,9 +61,12 @@ fun SessionScreen(onExit: () -> Unit, go: (String) -> Unit) {
     var index by remember { mutableIntStateOf(0) }
     val used = remember { mutableStateListOf<String>() }
     val helpful = remember { mutableStateListOf<String>() }
+    // Promesas de la Biblia: una distinta en cada paso (y al empezar y al revisar).
+    val promises = remember { Promises.all.shuffled() }
+    fun promiseAt(n: Int): Promise = promises[n % promises.size]
 
     fun startRound() {
-        val s = SessionEngine.buildRound(used.toSet())
+        val s = SessionEngine.buildRound(used.toSet(), first = round == 1)
         steps = s
         used.addAll(s.map { it.id })
         index = 0
@@ -108,6 +113,7 @@ fun SessionScreen(onExit: () -> Unit, go: (String) -> Unit) {
                                 style = MaterialTheme.typography.bodyLarge
                             )
                         }
+                        PromiseBanner(promiseAt(0))
                         BigButton("Empezar") { startRound() }
                         TextButton(onClick = { go(Routes.HELP) }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
                             Text("Necesito ayuda urgente")
@@ -130,7 +136,12 @@ fun SessionScreen(onExit: () -> Unit, go: (String) -> Unit) {
                             label = "step"
                         ) { i ->
                             val s = steps.getOrNull(i)
-                            if (s != null) StepCard(s, go)
+                            if (s != null) {
+                                Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
+                                    PromiseBanner(promiseAt((round - 1) * 10 + i + 1))
+                                    StepCard(s, go)
+                                }
+                            }
                         }
                         BigButton(if (last) "Terminar ronda" else "Siguiente paso") {
                             if (last) stage = 2 else index++
@@ -156,6 +167,7 @@ fun SessionScreen(onExit: () -> Unit, go: (String) -> Unit) {
                                 }
                             )
                         }
+                        PromiseBanner(promiseAt(round * 10 + 11))
                         if (steps.isNotEmpty()) {
                             SoftCard {
                                 Text("¿Cuáles te ayudaron? (opcional)", style = MaterialTheme.typography.titleMedium)
@@ -243,6 +255,7 @@ private fun emojiFor(s: Step): String = when (s.type) {
     StepType.GOODBOX -> "💌"
     StepType.SOUND -> "🌧️"
     StepType.CONTACT -> "📞"
+    StepType.BIBLE -> "🕊️"
 }
 
 @Composable
@@ -272,6 +285,9 @@ private fun StepCard(step: Step, go: (String) -> Unit) {
             StepType.GAME -> {
                 val m = Modifier.fillMaxWidth().height(300.dp)
                 when (step.arg) {
+                    "ripples" -> RipplesGame(m)
+                    "memory" -> MemoryGame(m)
+                    "mandala" -> MandalaColoring(Modifier.fillMaxWidth().height(440.dp))
                     "bubbles" -> BubblesGame(m)
                     "zen" -> ZenGarden(m)
                     else -> FirefliesGame(m)
@@ -282,6 +298,7 @@ private fun StepCard(step: Step, go: (String) -> Unit) {
             StepType.GOODBOX -> GoodBoxRandomCard()
             StepType.SOUND -> SoundMini(SoundKind.valueOf(step.arg))
             StepType.CONTACT -> ContactsQuick(onAdd = { go(Routes.CONTACTS) })
+            StepType.BIBLE -> BibleStepContent()
         }
     }
 }

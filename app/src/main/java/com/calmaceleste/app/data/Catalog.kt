@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 enum class Phase { BODY, DISTRACT, CONNECT }
 
-enum class StepType { BREATH, GROUND, TIP, JOKE, SONG, VIDEO, GAME, MATH, HUM, GOODBOX, SOUND, CONTACT }
+enum class StepType { BREATH, GROUND, TIP, JOKE, SONG, VIDEO, GAME, MATH, HUM, GOODBOX, SOUND, CONTACT, BIBLE }
 
 data class Step(
     val id: String,
@@ -85,6 +85,9 @@ object Catalog {
             add(Step("game_bub", StepType.GAME, Phase.DISTRACT, "Burbujas", "Toca las burbujas y suéltalas.", 60, "bubbles"))
             add(Step("game_zen", StepType.GAME, Phase.DISTRACT, "Jardín zen", "Dibuja con el dedo en la arena.", 60, "zen"))
             add(Step("game_fly", StepType.GAME, Phase.DISTRACT, "Luciérnagas", "Toca la pantalla y mira cómo se acercan.", 60, "fireflies"))
+            add(Step("game_rip", StepType.GAME, Phase.DISTRACT, "Ondas en el agua", "Toca el agua y respira mientras las ondas se van.", 60, "ripples"))
+            add(Step("game_man", StepType.GAME, Phase.DISTRACT, "Colorear un mandala", "Elige un color y toca cada parte para pintarla.", 90, "mandala"))
+            add(Step("game_mem", StepType.GAME, Phase.DISTRACT, "Memoria de parejas", "Encuentra las parejas, sin prisa.", 90, "memory"))
             add(Step("math_1", StepType.MATH, Phase.DISTRACT, "Mates suaves", "Un ejercicio mental sencillo, sin presión.", 60, "1"))
             add(Step("math_2", StepType.MATH, Phase.DISTRACT, "Series de números", "Completa las series con calma.", 60, "2"))
 
@@ -124,7 +127,14 @@ object SessionEngine {
     private const val DISTRACT_COUNT = 5
     private const val CONNECT_COUNT = 2
 
-    fun buildRound(exclude: Set<String>): List<Step> {
+    /** Paso 7 de la primera ronda: escuchar la Biblia hablada con los ojos cerrados. */
+    val BIBLE_STEP = Step(
+        "bible", StepType.BIBLE, Phase.DISTRACT,
+        "Escucha la Biblia hablada",
+        "Cierra los ojos y escucha. Dios está contigo.", 120
+    )
+
+    fun buildRound(exclude: Set<String>, first: Boolean = false): List<Step> {
         val hasSongs = Repo.media.items.value.any { !it.isVideo }
         val hasVideos = Repo.media.items.value.any { it.isVideo }
         val hasGood = Repo.good.items.value.isNotEmpty()
@@ -161,7 +171,11 @@ object SessionEngine {
         val body = pick(Phase.BODY, BODY_COUNT)
         val distract = pick(Phase.DISTRACT, DISTRACT_COUNT).shuffled()
         val connect = pick(Phase.CONNECT, CONNECT_COUNT)
-        return body + distract + connect
+        val round = body + distract + connect
+        // Primera ronda: el paso 7 siempre es la Biblia hablada.
+        return if (first && round.size > 6) {
+            round.toMutableList().also { it[6] = BIBLE_STEP }
+        } else round
     }
 
     private fun takeWeighted(

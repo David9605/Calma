@@ -27,7 +27,7 @@ jobs:
             -alias calmaceleste \
             -keyalg RSA -keysize 2048 -validity 10000 \
             -storepass "$PASS" -keypass "$PASS" \
-            -dname "CN=Calma Celeste, OU=App, O=Calma Celeste, C=VE" > /dev/null 2>&1
+            -dname "CN=Ansiedad Control, OU=App, O=Ansiedad Control, C=VE" > /dev/null 2>&1
           B64="$(base64 -w 0 salida/calmaceleste-upload.jks)"
           cat > salida/LEEME-SECRETOS.txt <<EOF
           Crea estos 4 secretos en GitHub:

@@ -56,7 +56,7 @@ private val quickTiles = listOf(
     Tile("🕊️", "Biblia hablada", Routes.BIBLE),
     Tile("🎵", "Mi canción", Routes.SONGS),
     Tile("😄", "Chistes", Routes.JOKES),
-    Tile("🎮", "Juegos", Routes.GAMES),
+    Tile("🎨", "Juegos y colorear", Routes.GAMES),
     Tile("💞", "Mensajes de amor", Routes.LOVE),
     Tile("📞", "Mi gente", Routes.CONTACTS)
 )
@@ -219,7 +219,7 @@ private val allTools = listOf(
     ToolItem("🎬", "Mis videos divertidos", "Los que te hacen reír.", Routes.VIDEOS),
     ToolItem("🎶", "Tararea para calmarte", "Ejercicio guiado de tarareo.", Routes.HUM),
     ToolItem("😄", "Chistes", "300 chistes para distraerte.", Routes.JOKES),
-    ToolItem("🎮", "Minijuegos relajantes", "Burbujas, jardín zen y luciérnagas.", Routes.GAMES),
+    ToolItem("🎮", "Juegos y colorear", "Burbujas, mandalas, memoria, puzzle y más.", Routes.GAMES),
     ToolItem("🧮", "Mates para calmar la mente", "Preguntas suaves, sin presión.", Routes.MATH),
     ToolItem("🌧️", "Sonidos relajantes", "Lluvia, mar, viento y temporizador.", Routes.SOUNDS),
     ToolItem("📞", "Contactos de apoyo", "Llama o escribe en un toque.", Routes.CONTACTS),

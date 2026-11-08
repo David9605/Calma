@@ -1,4 +1,4 @@
-# Cómo publicar Calma Celeste en Google Play (paso a paso)
+# Cómo publicar Ansiedad Control en Google Play (paso a paso)
 
 > Los menús de GitHub y de Google cambian de vez en cuando. Si algún botón no está donde digo, busca el nombre entre comillas.
 
@@ -14,7 +14,7 @@ Tiempo estimado: 1 hora de preparación + 2 a 3 semanas si tu cuenta de Play es 
 git init -b main
 git add .
 git update-index --chmod=+x gradlew
-git commit -m "Primera versión de Calma Celeste"
+git commit -m "Primera versión de Ansiedad Control"
 git remote add origin https://github.com/TU_USUARIO/CalmaCeleste.git
 git push -u origin main
 ```
@@ -60,7 +60,7 @@ Los encuentras en **Releases** (columna derecha del repositorio) y en *Actions �
 
 ## Paso 5 · Crear tu cuenta y la app en Google Play Console
 1. play.google.com/console → pago único de 25 USD y verificación de identidad.
-2. **Crear app**: nombre «Calma Celeste: ansiedad», idioma español (Latinoamérica), tipo **App**, **Gratis**, acepta las declaraciones.
+2. **Crear app**: nombre «Ansiedad Control», idioma español (Latinoamérica), tipo **App**, **Gratis**, acepta las declaraciones.
 3. El identificador de la app es `com.calmaceleste.app`. **Si ya está tomado por otra app**, cámbialo antes de publicar por primera vez en `app/build.gradle.kts` (`applicationId`) y en `.github/workflows/release.yml` (`packageName`). Después de publicar no se puede cambiar.
 4. Completa los formularios de **Contenido de la app** con las respuestas de `play-store/FICHA-Y-FORMULARIOS.md` (anuncios, público, clasificación, apps de salud, seguridad de datos).
 5. Sube la ficha: textos de `play-store/listing/es-419/`, icono y gráfico de `play-store/graphics/` y **tus capturas de pantalla reales** (mínimo 2).

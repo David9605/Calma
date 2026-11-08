@@ -1,4 +1,4 @@
-# 💙 Calma Celeste
+# 💙 Ansiedad Control
 
 App Android (Kotlin + Jetpack Compose) para calmar la ansiedad. Funciona **100 % sin Internet**, sin cuentas y sin anuncios. Todo se guarda solo en el teléfono.
 
@@ -23,6 +23,7 @@ App Android (Kotlin + Jetpack Compose) para calmar la ansiedad. Funciona **100 %
 | 16 | Minijuegos: burbujas, jardín zen, luciérnagas | `ui/Games.kt` |
 | 17 | Mates para calmar la mente (adaptativas) | `ui/Fun.kt` |
 | 18 | Tararea para calmarte (ejercicio guiado) | `ui/Fun.kt` |
+| 21 | Promesas de Dios, Biblia hablada, Mensajes de amor, copia de seguridad | `ui/Faith.kt`, `ui/Love.kt`, `data/Backup.kt` |
 | 19 | 300+ chistes sin Internet, con favoritos | `assets/chistes.txt`, `ui/Fun.kt` |
 | 20 | **Sistema de 10 pasos** que aprende lo que te ayuda | `ui/Session.kt`, `data/Catalog.kt` |
 

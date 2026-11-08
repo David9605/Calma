@@ -37,7 +37,10 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      # Instala Gradle directamente: no depende de gradlew ni de gradle-wrapper.jar del repositorio.
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.14.3"
 
       - name: Aceptar licencias del SDK de Android
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
@@ -61,14 +64,14 @@ jobs:
           echo "KEYSTORE_PATH=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
 
       - name: Pruebas automáticas
-        run: ./gradlew testDebugUnitTest --stacktrace
+        run: gradle testDebugUnitTest --stacktrace
 
       - name: Compilar AAB y APK firmados
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: ./gradlew bundleRelease assembleRelease --stacktrace
+        run: gradle bundleRelease assembleRelease --stacktrace
 
       - name: Verificar que el APK está firmado
         run: |
@@ -94,7 +97,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          name: Calma Celeste ${{ env.VERSION_NAME }}
+          name: Ansiedad Control ${{ env.VERSION_NAME }}
           files: |
             dist/*.aab
             dist/*.apk

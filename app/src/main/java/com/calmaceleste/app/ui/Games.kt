@@ -54,11 +54,16 @@ import kotlin.random.Random
 
 @Composable
 fun GamesScreen(go: (String) -> Unit, onBack: () -> Unit) {
-    ScreenScaffold("Minijuegos relajantes", onBack) {
-        SoftText("Sin puntos, sin tiempo, sin perder. Solo para soltar la mente un rato.")
+    ScreenScaffold("Juegos y colorear", onBack) {
+        SoftText("Sin puntos, sin tiempo, sin perder. Juegos y colores para soltar la mente un rato.")
         GameCard("🫧", "Burbujas", "Toca las burbujas y suéltalas.") { go(Routes.BUBBLES) }
         GameCard("🪨", "Jardín zen", "Dibuja con el dedo en la arena.") { go(Routes.ZEN) }
         GameCard("✨", "Luciérnagas", "Toca la pantalla y mira cómo se acercan.") { go(Routes.FIREFLIES) }
+        GameCard("💧", "Ondas en el agua", "Toca el agua y mira las ondas.") { go(Routes.RIPPLES) }
+        GameCard("🎨", "Colorear mandalas", "Pinta con colores suaves, sin prisa.") { go(Routes.MANDALA) }
+        GameCard("🖍️", "Dibujo libre", "Dibuja con el dedo y con colores.") { go(Routes.DRAW) }
+        GameCard("🃏", "Memoria de parejas", "Encuentra las parejas. Sin tiempo ni puntos.") { go(Routes.MEMORY) }
+        GameCard("🧩", "Puzzle deslizante", "Ordena los números del 1 al 8.") { go(Routes.SLIDE) }
     }
 }
 

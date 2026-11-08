@@ -34,6 +34,11 @@ object Routes {
     const val HUM = "hum"
     const val JOKES = "jokes"
     const val SETTINGS = "settings"
+    const val RIPPLES = "game_ripples"
+    const val MEMORY = "game_memory"
+    const val SLIDE = "game_slide"
+    const val MANDALA = "game_mandala"
+    const val DRAW = "game_draw"
     const val PROMISES = "promises"
     const val BIBLE = "bible"
     const val LOVE = "love"
@@ -73,6 +78,11 @@ fun AppNav(onWiped: () -> Unit) {
         composable(Routes.BUBBLES) { GameScreen("Burbujas", back) { BubblesGame(it) } }
         composable(Routes.ZEN) { GameScreen("Jardín zen", back) { ZenGarden(it) } }
         composable(Routes.FIREFLIES) { GameScreen("Luciérnagas", back) { FirefliesGame(it) } }
+        composable(Routes.RIPPLES) { GameScreen("Ondas en el agua", back) { RipplesGame(it) } }
+        composable(Routes.MEMORY) { GameScreen("Memoria de parejas", back) { MemoryGame(it) } }
+        composable(Routes.SLIDE) { GameScreen("Puzzle deslizante", back) { SlidePuzzle(it) } }
+        composable(Routes.MANDALA) { GameScreen("Colorear mandalas", back) { MandalaColoring(it) } }
+        composable(Routes.DRAW) { GameScreen("Dibujo libre", back) { FreeDrawing(it) } }
         composable(Routes.MATH) { MathScreen(back) }
         composable(Routes.HUM) { HumScreen(back) }
         composable(Routes.JOKES) { JokesScreen(back) }

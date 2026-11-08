@@ -1,4 +1,4 @@
-# Banco de chistes de Calma Celeste.
+# Banco de chistes de Ansiedad Control.
 # Formato: categoria|texto##remate   (el remate es opcional)
 # Para añadir más chistes en futuras versiones, solo agrega líneas nuevas al final.
 # Reglas: sin burlas hacia personas o grupos, aptos para todo público.
