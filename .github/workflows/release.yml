@@ -87,7 +87,7 @@ jobs:
           ls -la dist
 
       - name: Guardar archivos (AAB, APK y mapping)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: CalmaCeleste-${{ env.VERSION_NAME }}
           path: dist/*
