@@ -36,10 +36,12 @@ jobs:
           app/src/main/assets/chistes.txt
           app/src/main/java/com/calmaceleste/app/CalmaApp.kt
           app/src/main/java/com/calmaceleste/app/MainActivity.kt
+          app/src/main/java/com/calmaceleste/app/data/Backup.kt
           app/src/main/java/com/calmaceleste/app/data/Catalog.kt
           app/src/main/java/com/calmaceleste/app/data/HelpData.kt
           app/src/main/java/com/calmaceleste/app/data/Insights.kt
           app/src/main/java/com/calmaceleste/app/data/Models.kt
+          app/src/main/java/com/calmaceleste/app/data/Promises.kt
           app/src/main/java/com/calmaceleste/app/data/Repo.kt
           app/src/main/java/com/calmaceleste/app/system/Audio.kt
           app/src/main/java/com/calmaceleste/app/system/Intents.kt
@@ -48,10 +50,12 @@ jobs:
           app/src/main/java/com/calmaceleste/app/ui/Components.kt
           app/src/main/java/com/calmaceleste/app/ui/Contacts.kt
           app/src/main/java/com/calmaceleste/app/ui/Diary.kt
+          app/src/main/java/com/calmaceleste/app/ui/Faith.kt
           app/src/main/java/com/calmaceleste/app/ui/Fun.kt
           app/src/main/java/com/calmaceleste/app/ui/Games.kt
           app/src/main/java/com/calmaceleste/app/ui/GoodBox.kt
           app/src/main/java/com/calmaceleste/app/ui/Home.kt
+          app/src/main/java/com/calmaceleste/app/ui/Love.kt
           app/src/main/java/com/calmaceleste/app/ui/Media.kt
           app/src/main/java/com/calmaceleste/app/ui/Nav.kt
           app/src/main/java/com/calmaceleste/app/ui/Reminders.kt
@@ -69,6 +73,7 @@ jobs:
           app/src/main/res/values/colors.xml
           app/src/main/res/values/strings.xml
           app/src/main/res/values/themes.xml
+          app/src/main/res/xml/file_paths.xml
           app/src/test/java/com/calmaceleste/app/CatalogTest.kt
           app/src/test/java/com/calmaceleste/app/InsightsTest.kt
           build.gradle.kts
@@ -81,7 +86,7 @@ jobs:
             echo "::error::Faltan archivos del proyecto (ver arriba). Súbelos respetando las carpetas exactas."
             exit 1
           fi
-          echo "Proyecto completo: 46 archivos encontrados."
+          echo "Proyecto completo: 51 archivos encontrados."
 
       - uses: actions/setup-java@v4
         with:
